@@ -1,0 +1,750 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  cursor: none;
+}
+
+body button, body a {
+  cursor: none;
+  outline: none;
+}
+
+body a {
+  color: #000;
+}
+
+body #contact-left #contact-line {
+  background: #000;
+}
+
+body main #skills .skill-line {
+  border: 1px solid #000;
+}
+
+body main #skills .skill-line div {
+  background: #000;
+}
+
+body main #edu .edu-block {
+  border-left: 0.3rem solid #000;
+}
+
+body main #project .project-block {
+  border: 2px solid #000;
+}
+
+body main #project .project-block .project-block-cont {
+  color: #000;
+}
+
+body main #contact input, body main #contact textarea {
+  border: 1px solid #000;
+}
+
+body main #contact button {
+  color: #000;
+  border: 1px solid #000;
+  background: none;
+}
+
+body main #contact button:hover {
+  background: #000;
+  color: #fff;
+}
+
+body footer {
+  background: #000;
+  color: #fff;
+}
+
+.dark {
+  background: #000;
+}
+
+.dark a {
+  color: #fff;
+}
+
+.dark button {
+  color: #fff;
+}
+
+.dark nav {
+  color: #fff;
+}
+
+.dark nav #day-night {
+  color: #7474e9;
+}
+
+.dark #contact-left #contact-line {
+  background: #fff;
+}
+
+.dark main {
+  color: #fff;
+}
+
+.dark main #skills .skill-line {
+  border: 1px solid #fff;
+}
+
+.dark main #skills .skill-line div {
+  background: #fff;
+}
+
+.dark main #edu .edu-block {
+  border-left: 0.3rem solid #fff;
+}
+
+.dark main #project .project-block {
+  border: 2px solid #fff;
+}
+
+.dark main #project .project-block .project-block-cont {
+  color: #fff;
+}
+
+.dark main #contact input, .dark main #contact textarea {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.dark main #contact button {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.dark main #contact button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.dark footer {
+  color: #fff;
+}
+
+.cursor {
+  overflow-x: visible;
+  background: #ffd271;
+  padding: 1.5rem;
+  position: absolute;
+  border-radius: 50%;
+  -webkit-transition-duration: 10ms;
+          transition-duration: 10ms;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-animation: cursorAnimation .5s infinite alternate;
+          animation: cursorAnimation .5s infinite alternate;
+}
+
+.red {
+  background: #b82424be;
+}
+
+.red::after {
+  border: 2px solid #ce2727 !important;
+}
+
+.cursor::after {
+  content: "";
+  padding: 2rem;
+  border: 2px solid #ffd271;
+  position: absolute;
+  border-radius: 50%;
+  opacity: .5;
+  top: -10px;
+  left: -10px;
+  -webkit-animation: cursorAnimation2 .5s infinite alternate;
+          animation: cursorAnimation2 .5s infinite alternate;
+}
+
+#container {
+  padding: 1rem;
+}
+
+nav {
+  padding: 1rem;
+  text-align: right;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+nav a {
+  text-decoration: none;
+  margin-right: 1.5rem;
+}
+
+nav #day-night {
+  background: none;
+  border: none;
+  color: #ff5e00;
+}
+
+#contact-left {
+  position: fixed;
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#contact-left #contact-left-links {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#contact-left #contact-line {
+  height: 30vh;
+  padding: 1px;
+  display: inline-block;
+}
+
+#contact-left a {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+main {
+  position: relative;
+  padding: 1rem;
+  width: 85%;
+  margin: 0 auto;
+}
+
+main .block {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+main .block .heading {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 3rem;
+  width: 35%;
+}
+
+main .block p {
+  padding: 1rem;
+}
+
+main #about {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 90vh;
+}
+
+main #about #heading--main {
+  font-size: 5rem;
+}
+
+main #skills .skill-blocks-all {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+main #skills .skill-block {
+  margin-top: 0rem;
+  padding: 1rem;
+}
+
+main #skills .skill-block .skill-block-heading {
+  font-size: 1.3rem;
+}
+
+main #skills .skill-block .skill-line {
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+
+main #skills .skill-block .skill-line div {
+  padding: 0.2rem;
+}
+
+main #skills .skill-block .skill-line #skill-line-cybersecurity {
+  width: 90%;
+}
+
+main #skills .skill-block .skill-line #skill-line-penetrationtesting {
+  width: 80%;
+}
+
+main #skills .skill-block .skill-line #skill-line-bugbounty {
+  width: 75%;
+}
+
+main #skills .skill-block .skill-line #skill-line-linux {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-git {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-reverseengineering {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-networking {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-malwareanalysis {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-python {
+  width: 80%;
+}
+
+main #skills .skill-block .skill-line #skill-line-go {
+  width: 75%;
+}
+
+main #skills .skill-block .skill-line #skill-line-javascript {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-mongodb {
+  width: 70%;
+}
+
+main #skills .skill-block .skill-line #skill-line-rust {
+  width: 40%;
+}
+
+main #edu .edu-block-main {
+  margin-top: 1rem;
+  padding: 1rem;
+  padding-left: 6rem;
+}
+
+main #edu .edu-block-main .edu-block-sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main #edu .edu-block-main .edu-block-sub .edu-block {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+main #edu .edu-block-main .edu-block-sub .edu-block .edu-block-heading {
+  font-size: 1.6rem;
+}
+
+main #project-all::-webkit-scrollbar {
+  width: 0em;
+}
+
+main #project {
+  position: relative;
+}
+
+main #project #project-all {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+main #project #project-all .project-block {
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem;
+}
+
+main #project #project-all .project-block img {
+  width: 100%;
+  z-index: -1;
+}
+
+main #project #project-all .project-block .project-block-cont {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main #project #project-all .project-block .project-block-cont .project-block-heading {
+  font-size: 1.3rem;
+}
+
+main #project #project-all .project-block .project-block-cont span, main #project #project-all .project-block .project-block-cont p {
+  font-size: 1.2rem;
+}
+
+main #project #project-all .project-block .project-block-cont .project-block-links-source {
+  padding: 1rem;
+}
+
+main #project #project-all .project-block .project-block-cont .project-block-links-source a {
+  display: block;
+  text-decoration: none;
+}
+
+main #project #project-all .project-block .project-block-cont .used-lang {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  overflow: visible;
+}
+
+main #project #project-all .project-block .project-block-cont .used-lang .label {
+  padding: 0 0.3rem;
+  border-radius: 1rem;
+  background: rgba(166, 250, 243, 0.623);
+}
+
+main #project #project-all .project-block1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+}
+
+main #project #project-all .project-block2 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 4;
+  grid-row: 4;
+}
+
+main #project #project-all .project-block3 {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+main #project #project-all .project-block4 {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+main #project #project-all .project-block5 {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  -ms-grid-column: 3;
+  grid-column: 3;
+}
+
+main #project #project-all .project-block6 {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 4;
+  grid-row: 4;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+main #project #project-all .project-block7 {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+
+main #contact #contact-block {
+  padding: 0.5rem;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  text-align: right;
+}
+
+main #contact #contact-block .contact-input {
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #contact #contact-block label {
+  font-size: 1rem;
+  width: 15%;
+  margin-right: 1rem;
+}
+
+main #contact #contact-block input, main #contact #contact-block textarea {
+  width: 90%;
+  outline: none;
+  padding: 0.8rem;
+  background: none;
+}
+
+main #contact #contact-block button {
+  padding: 0.6rem 2rem;
+}
+
+footer {
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.animaaation {
+  -webkit-animation-name: wipe-enter;
+          animation-name: wipe-enter;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes wipe-enter {
+  0% {
+    width: 0;
+    -webkit-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+  }
+  50% {
+    width: 50%;
+  }
+}
+
+@keyframes wipe-enter {
+  0% {
+    width: 0;
+    -webkit-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+  }
+  50% {
+    width: 50%;
+  }
+}
+
+@-webkit-keyframes cursorAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+}
+
+@keyframes cursorAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+}
+
+@-webkit-keyframes cursorAnimation2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+}
+
+@keyframes cursorAnimation2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+}
+
+#contact-links {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  main {
+    width: 100%;
+  }
+  main #about #heading--main {
+    font-size: 4rem;
+  }
+  main .block .heading {
+    width: 100%  !important;
+    font-size: 2.2rem;
+  }
+  main .block {
+    padding: 1rem 0rem 1rem 1rem;
+  }
+  main #skills .skill-blocks-all {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main #skills .skill-block .skill-block-heading {
+    font-size: 1rem;
+  }
+  main #skills .skill-block .skill-line {
+    padding: 0.4rem;
+  }
+  main #edu .edu-block-main {
+    padding-left: 1rem;
+  }
+  main #edu .edu-block-main .edu-block-sub .edu-block .edu-block-heading {
+    font-size: 1.3rem;
+  }
+  main #project #project-all {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main #project #project-all .project-block .project-block-cont span, main #project #project-all main #project #project-all .project-block .project-block-cont p {
+    font-size: 1rem;
+  }
+  main #project #project-all .project-block1 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  main #project #project-all .project-block2 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+  main #project #project-all .project-block3 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 3;
+    grid-row: 3;
+  }
+  main #project #project-all .project-block4 {
+    -ms-grid-row: 4;
+    grid-row: 4;
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  main #project #project-all .project-block5 {
+    -ms-grid-row: 5;
+    grid-row: 5;
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  main #project #project-all .project-block6 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 6;
+    grid-row: 6;
+  }
+  main #project #project-all .project-block7 {
+    -ms-grid-row: 7;
+    grid-row: 7;
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  main #contact #contact-block {
+    margin-left: 1rem;
+    text-align: unset;
+  }
+  main #contact #contact-block .contact-input {
+    display: block;
+  }
+  main #contact #contact-block input, main #contact #contact-block textarea {
+    width: 100%;
+    padding: 0.6rem;
+  }
+  main #contact #contact-block button {
+    padding: 0.4rem 1rem;
+  }
+  #contact-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 1rem;
+    padding-bottom: none;
+  }
+  #contact-left {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  main .block .heading {
+    width: 70%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
