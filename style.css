@@ -655,10 +655,6 @@ main {
     color: var(--accent);
     transform: translate(2px, -2px);
 }
-.project-links-ghost {
-    color: var(--fg-dimmer);
-    font-family: var(--font-mono);
-}
 
 .project-desc {
     color: var(--fg-dim);
