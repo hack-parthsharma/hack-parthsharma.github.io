@@ -72,6 +72,7 @@
 
 /* --------------------------------------------------------------
    4. Custom cursor (skipped on touch / small screens)
+   Professional: precise dot + subtle ring that only appears on hover.
 -------------------------------------------------------------- */
 (function cursor() {
     const isTouch = window.matchMedia('(hover: none)').matches || window.innerWidth < 820;
@@ -81,33 +82,27 @@
     const dot  = document.querySelector('.cursor-dot');
     if (!ring || !dot) return;
 
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
-
+    // Both follow the mouse precisely — no lag, no trailing.
     document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        // Dot follows instantly for precision
-        dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-    });
+        const t = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        dot.style.transform = t;
+        ring.style.transform = t;
+    }, { passive: true });
 
-    // Ring lags slightly for a smoother feel
-    const animate = () => {
-        ringX += (mouseX - ringX) * 0.18;
-        ringY += (mouseY - ringY) * 0.18;
-        ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-        requestAnimationFrame(animate);
-    };
-    animate();
-
-    // Hover states
-    const hoverables = document.querySelectorAll('a, button, input, textarea, .project-card');
+    // Hover states — ring fades in on interactive elements.
+    const hoverables = document.querySelectorAll('a, button, input, textarea, .project-card, .exp-card, .cert-card');
     hoverables.forEach((el) => {
-        el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-        el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+        el.addEventListener('mouseenter', () => {
+            ring.classList.add('hover');
+            dot.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            ring.classList.remove('hover');
+            dot.classList.remove('hover');
+        });
     });
 
-    // Hide cursor when leaving the window
+    // Hide when leaving the window.
     document.addEventListener('mouseleave', () => {
         ring.style.opacity = '0';
         dot.style.opacity = '0';
