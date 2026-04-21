@@ -1008,3 +1008,26 @@ footer {
    AOS override - subtle
    ========================================================================== */
 [data-aos] { transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important; }
+
+/* Experience company link (HackerOne / TryHackMe profiles) */
+.exp-company .exp-link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: opacity 0.2s ease, letter-spacing 0.2s ease;
+}
+.exp-company .exp-link i {
+    font-size: 0.72em;
+    opacity: 0.7;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.exp-company .exp-link:hover {
+    opacity: 0.85;
+    letter-spacing: 0.02em;
+}
+.exp-company .exp-link:hover i {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
