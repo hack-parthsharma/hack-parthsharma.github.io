@@ -1,102 +1,150 @@
-function type()
-{
-    let name1="PARTH SHARMA";
-    let namearr=name1.split("");
+/* ==========================================================================
+   Parth Sharma — Portfolio JS
+   ========================================================================== */
 
-    function looping()
-    {
-        if(namearr.length>0)
-        {
-            let n=namearr.shift();
-            document.querySelector("#heading--main").innerHTML+=n;
-        }   
-        else
-        {
-            //deleting();
-            return false;
+/* --------------------------------------------------------------
+   1. Typewriter hero name
+-------------------------------------------------------------- */
+(function typeName() {
+    const target = document.querySelector('#heading--main');
+    if (!target) return;
+    const name = 'PARTH SHARMA';
+    let i = 0;
+    const step = () => {
+        if (i < name.length) {
+            target.textContent += name[i++];
+            setTimeout(step, 110);
         }
-        setTimeout(looping,500);
-    }
+    };
+    // Slight initial delay so the user sees the caret first
+    setTimeout(step, 400);
+})();
 
-    looping();
+/* --------------------------------------------------------------
+   2. Skill bar fill via IntersectionObserver
+-------------------------------------------------------------- */
+(function fillSkills() {
+    const bars = document.querySelectorAll('.skill-line > div');
+    if (!bars.length) return;
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const w = el.dataset.width || '0';
+                el.style.width = w + '%';
+                io.unobserve(el);
+            }
+        });
+    }, { threshold: 0.25 });
+
+    bars.forEach((b) => io.observe(b));
+})();
+
+/* --------------------------------------------------------------
+   3. Theme toggle — persists in memory for the session
+-------------------------------------------------------------- */
+(function theme() {
+    const btn = document.querySelector('#day-night');
+    if (!btn) return;
+    const body = document.body;
+
+    const apply = (mode) => {
+        if (mode === 'light') {
+            body.classList.add('light');
+            body.classList.remove('dark');
+            btn.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            body.classList.add('dark');
+            body.classList.remove('light');
+            btn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    };
+
+    // Default: dark
+    apply('dark');
+
+    btn.addEventListener('click', () => {
+        const next = body.classList.contains('dark') ? 'light' : 'dark';
+        apply(next);
+    });
+})();
+
+/* --------------------------------------------------------------
+   4. Custom cursor (skipped on touch / small screens)
+-------------------------------------------------------------- */
+(function cursor() {
+    const isTouch = window.matchMedia('(hover: none)').matches || window.innerWidth < 820;
+    if (isTouch) return;
+
+    const ring = document.querySelector('.cursor');
+    const dot  = document.querySelector('.cursor-dot');
+    if (!ring || !dot) return;
+
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        // Dot follows instantly for precision
+        dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+    });
+
+    // Ring lags slightly for a smoother feel
+    const animate = () => {
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+        requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Hover states
+    const hoverables = document.querySelectorAll('a, button, input, textarea, .project-card');
+    hoverables.forEach((el) => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    });
+
+    // Hide cursor when leaving the window
+    document.addEventListener('mouseleave', () => {
+        ring.style.opacity = '0';
+        dot.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+        ring.style.opacity = '';
+        dot.style.opacity = '';
+    });
+})();
+
+/* --------------------------------------------------------------
+   5. AOS init (library loaded via CDN)
+-------------------------------------------------------------- */
+if (window.AOS) {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 60
+    });
 }
 
-
-function deleting()
-{
-    nameDarr=document.querySelector("#heading--main").innerHTML.split("");
-    if(nameDarr.length>0)
-    {
-        nameDarr.pop();
-        document.querySelector("#heading--main").innerHTML=nameDarr.join("");
-    }
-    else
-    {
-        type();
-        return false;
-    }
-    setTimeout(deleting,150)
-}
-
-type();
-
-
-//skills fill effect 
-
-
-const square = document.querySelectorAll('.skill-line div');
-// square.forEach(a=>a.classList.remove('animaaation'));
-
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animaaation');
-      return;
-    }
-
-    entry.target.classList.remove('animaaation');
-  });
+/* --------------------------------------------------------------
+   6. Smooth in-page anchors respecting <base target="_blank">
+   (base sends hash links to a new tab otherwise)
+-------------------------------------------------------------- */
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.setAttribute('target', '_self');
+    a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id && id.length > 1) {
+            const el = document.querySelector(id);
+            if (el) {
+                e.preventDefault();
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', id);
+            }
+        }
+    });
 });
-
-square.forEach(a=>observer.observe(a))
-
-
-
-
-//light dark theme 
-let dayN=document.querySelector("#day-night")
-dayN.addEventListener("click",alter)
-function alter()
-{
-    if(dayN.querySelector("i").classList.contains("fa-sun"))
-    {
-        dayN.innerHTML='<i class="fas fa-moon"></i>';
-        document.querySelector("body").classList.add("dark");
-        document.querySelector("body").classList.remove("light");
-    }
-    else
-    {
-        dayN.innerHTML='<i class="fas fa-sun"></i>';
-        document.querySelector("body").classList.remove("dark");
-        document.querySelector("body").classList.add("light");
-    }
-}
-
-
-//cursor
-const cursor=document.querySelector(".cursor");
-document.addEventListener('mousemove',e=>{
-    cursor.setAttribute("style","top: "+(e.pageY-20)+"px;left: "+(e.pageX-20)+"px");
-})
-
-let element = document.querySelectorAll("button,a");
-
-element.forEach(a=>a.addEventListener("mouseover", function( event ) {
-    cursor.classList.add("red");
-},));
-
-element.forEach(a=>a.addEventListener("mouseout", function( event ) {
-    cursor.classList.remove("red");
-},));
-
