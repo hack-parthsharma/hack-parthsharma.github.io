@@ -1,1007 +1,585 @@
-/* ==========================================================================
-   Parth Sharma — Portfolio
-   Aesthetic: refined terminal / cyber. Monospace display type, a single
-   acid-green accent, generous negative space, subtle grain. Dark by default.
-   ========================================================================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_blank">
+    <title>Parth Sharma // Cybersecurity Portfolio</title>
 
-:root {
-    /* Dark (default) */
-    --bg:            #0a0d10;
-    --bg-elev:       #10141a;
-    --bg-elev-2:     #161b22;
-    --fg:            #e6edf3;
-    --fg-dim:        #8b949e;
-    --fg-dimmer:     #484f58;
-    --accent:        #64ffda;        /* acid mint */
-    --accent-soft:   rgba(100, 255, 218, 0.12);
-    --accent-line:   rgba(100, 255, 218, 0.28);
-    --danger:        #ff6b6b;
-    --border:        rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.16);
-    --radius:        6px;
-    --font-mono:     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-    --font-display:  'Space Grotesk', system-ui, sans-serif;
-    --font-term:     'VT323', 'JetBrains Mono', monospace;
-    --cursor-size:   24px;
-    --max-w:         1180px;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
 
-body.light {
-    --bg:            #f5f3ee;
-    --bg-elev:       #ebe8df;
-    --bg-elev-2:     #e1ddd0;
-    --fg:            #1a1d1f;
-    --fg-dim:        #555b63;
-    --fg-dimmer:     #8a8f96;
-    --accent:        #ff3d00;        /* in light mode: hot orange */
-    --accent-soft:   rgba(255, 61, 0, 0.10);
-    --accent-line:   rgba(255, 61, 0, 0.30);
-    --border:        rgba(0, 0, 0, 0.08);
-    --border-strong: rgba(0, 0, 0, 0.16);
-}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="dark">
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+    <!-- Grain texture overlay -->
+    <div class="grain"></div>
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
+    <!-- Custom cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
 
-body {
-    font-family: var(--font-display);
-    font-weight: 400;
-    background: var(--bg);
-    color: var(--fg);
-    line-height: 1.6;
-    overflow-x: hidden;
-    min-height: 100vh;
-    transition: background .4s ease, color .4s ease;
-    cursor: none;
-}
+    <!-- Side sockets -->
+    <aside id="socials" aria-label="Social links">
+        <a href="https://github.com/hack-parthsharma" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/parthsharmajii/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:ps191240@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <span class="socials-line"></span>
+    </aside>
 
-body::before {
-    /* soft radial glow top-right */
-    content: "";
-    position: fixed;
-    top: -40vh;
-    right: -20vw;
-    width: 70vw;
-    height: 70vw;
-    background: radial-gradient(circle, var(--accent-soft) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-}
+    <aside id="side-tag" aria-hidden="true">
+        <span>ps191240@gmail.com</span>
+        <span class="socials-line"></span>
+    </aside>
 
-/* Grain */
-.grain {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    opacity: .35;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-}
+    <!-- Nav -->
+    <header class="nav">
+        <a href="#about" target="_self" class="logo">
+            <span class="logo-bracket">{</span>PS<span class="logo-bracket">}</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#about" target="_self"><span class="nav-num">01.</span> about</a>
+            <a href="#skills" target="_self"><span class="nav-num">02.</span> skills</a>
+            <a href="#edu" target="_self"><span class="nav-num">03.</span> education</a>
+            <a href="#experience" target="_self"><span class="nav-num">04.</span> experience</a>
+            <a href="#certs" target="_self"><span class="nav-num">05.</span> certs</a>
+            <a href="#project" target="_self"><span class="nav-num">06.</span> work</a>
+            <a href="#contact" target="_self"><span class="nav-num">07.</span> contact</a>
+        </nav>
+        <button id="day-night" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
 
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: none; }
+    <main>
+        <!-- ABOUT / HERO -->
+        <section id="about" class="block hero">
+            <div class="hero-meta">
+                <span class="status-dot"></span>
+                <span>available_for_work // 2026</span>
+            </div>
+            <p class="hero-hello">Hello world, I'm</p>
+            <h1 id="heading--main" class="hero-name"></h1>
+            <h2 class="hero-tagline">
+                I break things <em>so they can be built</em> better.
+            </h2>
+            <p class="hero-desc">
+                Cybersecurity researcher &amp; engineer specialising in <span class="hl">penetration testing</span>,
+                <span class="hl">bug bounty</span>, and <span class="hl">malware analysis</span>. I ship code, break systems,
+                and document the gap in between.
+            </p>
+            <div class="hero-cta">
+                <a href="#project" target="_self" class="btn btn-primary">
+                    <span>view work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="mailto:ps191240@gmail.com" class="btn btn-ghost">
+                    <span>get in touch</span>
+                </a>
+            </div>
 
-::selection {
-    background: var(--accent);
-    color: var(--bg);
-}
+            <div class="hero-scroll">
+                <span>scroll</span>
+                <span class="scroll-line"></span>
+            </div>
+        </section>
 
-/* ==========================================================================
-   Custom cursor
-   ========================================================================== */
-.cursor, .cursor-dot {
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    border-radius: 50%;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform .2s ease, width .25s ease, height .25s ease,
-                background .25s ease, border-color .25s ease;
-    will-change: transform;
-}
-.cursor {
-    width: var(--cursor-size);
-    height: var(--cursor-size);
-    border: 1.5px solid var(--accent);
-    mix-blend-mode: difference;
-}
-.cursor-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--accent);
-}
-.cursor.hover {
-    width: 56px;
-    height: 56px;
-    background: var(--accent-soft);
-    border-color: var(--accent);
-}
-.cursor.hover + .cursor-dot { opacity: 0; }
+        <!-- SKILLS -->
+        <section id="skills" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">02.</span>
+                <h2 class="section-title">Skills &amp; Stack</h2>
+                <span class="section-line"></span>
+            </div>
 
-@media (max-width: 820px), (hover: none) {
-    body { cursor: auto; }
-    .cursor, .cursor-dot { display: none; }
-    a, button { cursor: pointer !important; }
-}
+            <div class="skills-grid">
+                <div class="skills-col">
+                    <h3 class="skills-col-title">// security</h3>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Cybersecurity</span><span class="skill-num">90</span></div>
+                        <div class="skill-line"><div data-width="90"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Penetration Testing</span><span class="skill-num">80</span></div>
+                        <div class="skill-line"><div data-width="80"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Bug Bounty</span><span class="skill-num">75</span></div>
+                        <div class="skill-line"><div data-width="75"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Reverse Engineering</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Malware Analysis</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Networking</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                </div>
 
-/* ==========================================================================
-   Socials (fixed sides)
-   ========================================================================== */
-#socials, #side-tag {
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    z-index: 10;
-    color: var(--fg-dim);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-}
-#socials { left: 28px; }
-#side-tag { right: 28px; }
+                <div class="skills-col">
+                    <h3 class="skills-col-title">// engineering</h3>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Python</span><span class="skill-num">80</span></div>
+                        <div class="skill-line"><div data-width="80"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Go</span><span class="skill-num">75</span></div>
+                        <div class="skill-line"><div data-width="75"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>JavaScript</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Linux</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Git</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>MongoDB</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Rust</span><span class="skill-num">40</span></div>
+                        <div class="skill-line"><div data-width="40"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-#socials a {
-    font-size: 1.05rem;
-    transition: color .25s ease, transform .25s ease;
-}
-#socials a:hover {
-    color: var(--accent);
-    transform: translateY(-3px);
-}
-#side-tag span:first-child {
-    writing-mode: vertical-rl;
-    letter-spacing: 0.15em;
-    transition: color .25s ease;
-}
-#side-tag span:first-child:hover { color: var(--accent); }
+        <!-- EDUCATION -->
+        <section id="edu" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">03.</span>
+                <h2 class="section-title">Education</h2>
+                <span class="section-line"></span>
+            </div>
 
-.socials-line {
-    display: block;
-    width: 1px;
-    height: 90px;
-    background: var(--fg-dimmer);
-}
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">2018 — 2022</div>
+                    <h3 class="timeline-heading">B.Tech, Computer Engineering</h3>
+                    <p class="timeline-sub">U.V Patel College of Engineering</p>
+                    <div class="timeline-meta"><span>CGPA</span><strong>8.9</strong></div>
+                </div>
 
-@media (max-width: 1024px) {
-    #socials, #side-tag { display: none; }
-}
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">2016 — 2018</div>
+                    <h3 class="timeline-heading">Higher Secondary, Science</h3>
+                    <p class="timeline-sub">C.I Patel English Medium High School</p>
+                    <div class="timeline-meta"><span>HSC</span><strong>79%</strong></div>
+                </div>
 
-/* ==========================================================================
-   Nav
-   ========================================================================== */
-.nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: color-mix(in srgb, var(--bg) 75%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-}
-.logo {
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--fg);
-    letter-spacing: 0.05em;
-    transition: color .25s ease;
-}
-.logo:hover { color: var(--accent); }
-.logo-bracket { color: var(--accent); }
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">2016</div>
+                    <h3 class="timeline-heading">Secondary</h3>
+                    <p class="timeline-sub">C.I Patel English Medium High School</p>
+                    <div class="timeline-meta"><span>SSC</span><strong>92%</strong></div>
+                </div>
+            </div>
+        </section>
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-.nav-links a {
-    color: var(--fg-dim);
-    transition: color .25s ease;
-    position: relative;
-}
-.nav-links a:hover { color: var(--fg); }
-.nav-num {
-    color: var(--accent);
-    margin-right: 4px;
-    font-size: 0.75rem;
-}
+        <!-- EXPERIENCE -->
+        <section id="experience" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">04.</span>
+                <h2 class="section-title">Experience</h2>
+                <span class="section-line"></span>
+            </div>
 
-#day-night {
-    background: transparent;
-    border: 1px solid var(--border-strong);
-    color: var(--accent);
-    width: 38px;
-    height: 38px;
-    border-radius: var(--radius);
-    display: grid;
-    place-items: center;
-    transition: all .25s ease;
-}
-#day-night:hover {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
+            <div class="exp-list">
 
-@media (max-width: 820px) {
-    .nav { padding: 1rem 1.25rem; }
-    .nav-links { display: none; }
-}
+                <article class="exp-card exp-card--current" data-aos="fade-up">
+                    <div class="exp-meta">
+                        <span class="exp-badge">current</span>
+                        <span class="exp-period">2024 — Present</span>
+                    </div>
+                    <h3 class="exp-role">SOC Analyst</h3>
+                    <p class="exp-company">Casepoint Pvt Ltd</p>
+                    <p class="exp-desc">
+                        Monitoring, triaging and responding to security incidents across enterprise
+                        infrastructure. Tuning detections, investigating alerts and owning the
+                        day-to-day defensive posture.
+                    </p>
+                </article>
 
-/* ==========================================================================
-   Layout
-   ========================================================================== */
-main {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 3rem 4rem;
-    position: relative;
-    z-index: 1;
-}
-.block {
-    padding: 6rem 0 3rem;
-    scroll-margin-top: 80px;
-}
-@media (max-width: 820px) {
-    main { padding: 0 1.25rem 3rem; }
-    .block { padding: 4rem 0 2rem; }
-}
+                <article class="exp-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="exp-meta">
+                        <span class="exp-badge exp-badge--ghost">ongoing</span>
+                        <span class="exp-period">5+ years</span>
+                    </div>
+                    <h3 class="exp-role">Part-time Bug Bounty Hunter</h3>
+                    <p class="exp-company">HackerOne</p>
+                    <p class="exp-desc">
+                        Five years reporting vulnerabilities to public and private programmes —
+                        web, API and misconfiguration classes. Consistent signal, focused on
+                        high-impact findings.
+                    </p>
+                </article>
 
-/* Section heading pattern */
-.section-head {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-}
-.section-num {
-    font-family: var(--font-mono);
-    color: var(--accent);
-    font-size: 1.1rem;
-}
-.section-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 600;
-    color: var(--fg);
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-}
-.section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border-strong);
-    max-width: 300px;
-}
+                <article class="exp-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="exp-meta">
+                        <span class="exp-badge exp-badge--ghost">achievement</span>
+                        <span class="exp-period">TryHackMe</span>
+                    </div>
+                    <h3 class="exp-role">Top 5% CTF Player — India</h3>
+                    <p class="exp-company">TryHackMe</p>
+                    <p class="exp-desc">
+                        Ranked in the top 5% of CTF players across India. Rooms span web
+                        exploitation, reverse engineering, forensics and active directory attack
+                        paths.
+                    </p>
+                </article>
 
-/* ==========================================================================
-   HERO
-   ========================================================================== */
-.hero {
-    min-height: 95vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 8rem;
-    padding-bottom: 5rem;
-}
-.hero-meta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--fg-dim);
-    margin-bottom: 1.5rem;
-    padding: 0.45rem 0.8rem;
-    border: 1px solid var(--border-strong);
-    border-radius: 100px;
-    width: max-content;
-    background: var(--bg-elev);
-}
-.status-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 0 var(--accent);
-    animation: pulse 2s infinite;
-}
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 var(--accent-line); }
-    70% { box-shadow: 0 0 0 10px transparent; }
-    100% { box-shadow: 0 0 0 0 transparent; }
-}
+                <article class="exp-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="exp-meta">
+                        <span class="exp-badge exp-badge--ghost">internship</span>
+                        <span class="exp-period">Past</span>
+                    </div>
+                    <h3 class="exp-role">Security Intern</h3>
+                    <p class="exp-company">Tech Defence · Palo Alto Networks</p>
+                    <p class="exp-desc">
+                        Hands-on exposure to enterprise-grade security tooling, firewall policy
+                        engineering and threat-detection workflows at Palo Alto Networks, alongside
+                        offensive-security training at Tech Defence.
+                    </p>
+                </article>
 
-.hero-hello {
-    font-family: var(--font-mono);
-    color: var(--accent);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
-.hero-name {
-    font-family: var(--font-display);
-    font-size: clamp(2.6rem, 8.5vw, 6.2rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--fg);
-    margin-bottom: 0.6rem;
-    min-height: 1em;
-}
-.hero-name::after {
-    content: "_";
-    color: var(--accent);
-    animation: blink 1s steps(1) infinite;
-    margin-left: 4px;
-}
-@keyframes blink { 50% { opacity: 0; } }
+            </div>
+        </section>
 
-.hero-tagline {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 4.5vw, 3rem);
-    font-weight: 500;
-    color: var(--fg-dim);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-}
-.hero-tagline em {
-    font-style: normal;
-    color: var(--fg);
-    position: relative;
-}
-.hero-tagline em::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 2px;
-    height: 8px;
-    background: var(--accent);
-    opacity: .35;
-    z-index: -1;
-}
+        <!-- CERTIFICATIONS -->
+        <section id="certs" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">05.</span>
+                <h2 class="section-title">Certifications</h2>
+                <span class="section-line"></span>
+            </div>
 
-.hero-desc {
-    max-width: 620px;
-    font-size: 1.05rem;
-    color: var(--fg-dim);
-    margin-bottom: 2.5rem;
-}
-.hl {
-    color: var(--fg);
-    font-weight: 500;
-    position: relative;
-    background-image: linear-gradient(var(--accent), var(--accent));
-    background-repeat: no-repeat;
-    background-size: 100% 2px;
-    background-position: 0 100%;
-    padding-bottom: 2px;
-}
+            <div class="certs-grid">
 
-.hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
+                <article class="cert-card" data-aos="fade-up">
+                    <div class="cert-top">
+                        <span class="cert-tag">Offensive</span>
+                        <i class="fas fa-shield-halved cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">C3SA</h3>
+                    <p class="cert-issuer">Certified Cyber Security Analyst</p>
+                </article>
 
-/* Buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.9rem 1.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    border-radius: var(--radius);
-    transition: all .25s ease;
-    border: 1px solid transparent;
-}
-.btn i { font-size: 0.85em; transition: transform .25s ease; }
-.btn:hover i { transform: translateX(3px); }
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="40">
+                    <div class="cert-top">
+                        <span class="cert-tag">Offensive</span>
+                        <i class="fas fa-user-secret cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">CRTP</h3>
+                    <p class="cert-issuer">Certified Red Team Professional</p>
+                </article>
 
-.btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    font-weight: 600;
-}
-.btn-primary:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0 var(--fg);
-}
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="cert-top">
+                        <span class="cert-tag">Offensive</span>
+                        <i class="fas fa-bug cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">eWPTX v2.0</h3>
+                    <p class="cert-issuer">eLearnSecurity · Web App Pentester Extreme</p>
+                </article>
 
-.btn-ghost {
-    border-color: var(--border-strong);
-    color: var(--fg);
-}
-.btn-ghost:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-soft);
-}
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="120">
+                    <div class="cert-top">
+                        <span class="cert-tag">Offensive</span>
+                        <i class="fas fa-bug cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">eWPT v1.0</h3>
+                    <p class="cert-issuer">eLearnSecurity · Web App Pentester</p>
+                </article>
 
-.hero-scroll {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--fg-dim);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-}
-.scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(var(--accent), transparent);
-    animation: scrollLine 2s ease-in-out infinite;
-}
-@keyframes scrollLine {
-    0%, 100% { transform: scaleY(1); opacity: 1; }
-    50% { transform: scaleY(0.4); opacity: .4; }
-}
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="cert-top">
+                        <span class="cert-tag">Offensive</span>
+                        <i class="fas fa-crosshairs cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">Certified Penetration Tester</h3>
+                    <p class="cert-issuer">Redteam Hacker Academy</p>
+                </article>
 
-/* ==========================================================================
-   SKILLS
-   ========================================================================== */
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-@media (max-width: 820px) {
-    .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
-}
-.skills-col-title {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-    text-transform: lowercase;
-}
-.skill-block { margin-bottom: 1.4rem; }
-.skill-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.45rem;
-    font-size: 0.95rem;
-}
-.skill-num {
-    font-family: var(--font-mono);
-    color: var(--fg-dim);
-    font-size: 0.85rem;
-}
-.skill-num::after {
-    content: "%";
-    color: var(--fg-dimmer);
-}
-.skill-line {
-    height: 2px;
-    background: var(--border-strong);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-}
-.skill-line > div {
-    height: 100%;
-    width: 0;
-    background: var(--accent);
-    transition: width 1.3s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0 0 8px var(--accent-line);
-}
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cert-top">
+                        <span class="cert-tag cert-tag--blue">Defensive</span>
+                        <i class="fas fa-headset cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">SOC Analyst L1</h3>
+                    <p class="cert-issuer">Cybrary</p>
+                </article>
 
-/* ==========================================================================
-   EDUCATION timeline
-   ========================================================================== */
-.timeline {
-    position: relative;
-    padding-left: 2rem;
-    border-left: 1px solid var(--border-strong);
-}
-.timeline-item {
-    position: relative;
-    padding: 0.5rem 0 2.5rem 1.5rem;
-}
-.timeline-item:last-child { padding-bottom: 0; }
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="cert-top">
+                        <span class="cert-tag cert-tag--blue">Defensive</span>
+                        <i class="fas fa-shield-heart cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">Shields Up</h3>
+                    <p class="cert-issuer">AIG</p>
+                </article>
 
-.timeline-marker {
-    position: absolute;
-    left: -2.5rem;
-    top: 1rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    box-shadow: 0 0 0 4px var(--bg), 0 0 12px var(--accent-line);
-}
-.timeline-year {
-    font-family: var(--font-mono);
-    color: var(--accent);
-    font-size: 0.85rem;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.05em;
-}
-.timeline-heading {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--fg);
-    margin-bottom: 0.3rem;
-}
-.timeline-sub {
-    color: var(--fg-dim);
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-}
-.timeline-meta {
-    display: inline-flex;
-    gap: 0.6rem;
-    align-items: baseline;
-    padding: 0.35rem 0.8rem;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    background: var(--bg-elev);
-}
-.timeline-meta span { color: var(--fg-dim); }
-.timeline-meta strong {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="280">
+                    <div class="cert-top">
+                        <span class="cert-tag cert-tag--neutral">Foundational</span>
+                        <i class="fas fa-certificate cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">CompTIA Security+</h3>
+                    <p class="cert-issuer">CompTIA</p>
+                </article>
 
-/* ==========================================================================
-   PROJECTS (no images — text cards with clean layout)
-   ========================================================================== */
-.projects-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-@media (max-width: 820px) {
-    .projects-list { grid-template-columns: 1fr; }
-}
+                <article class="cert-card" data-aos="fade-up" data-aos-delay="320">
+                    <div class="cert-top">
+                        <span class="cert-tag cert-tag--neutral">Networking</span>
+                        <i class="fas fa-network-wired cert-icon"></i>
+                    </div>
+                    <h3 class="cert-name">NSE 4 · NSE 2 · NSE 1</h3>
+                    <p class="cert-issuer">Fortinet · Network Security Professional</p>
+                </article>
 
-.project-card {
-    position: relative;
-    padding: 1.8rem 1.8rem 1.6rem;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: transform .35s ease, border-color .35s ease, background .35s ease;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-.project-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    transform: translateX(-100%);
-    transition: transform .6s ease;
-}
-.project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-line);
-    background: var(--bg-elev-2);
-}
-.project-card:hover::before { transform: translateX(100%); }
+            </div>
+        </section>
 
-.project-index {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--fg-dimmer);
-    margin-bottom: 1rem;
-    letter-spacing: 0.1em;
-}
-.project-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.9rem;
-}
-.project-title {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--fg);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    transition: color .25s ease;
-}
-.project-card:hover .project-title { color: var(--accent); }
+        <!-- PROJECTS -->
+        <section id="project" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">06.</span>
+                <h2 class="section-title">Selected Work</h2>
+                <span class="section-line"></span>
+            </div>
 
-.project-links {
-    display: flex;
-    gap: 0.8rem;
-    flex-shrink: 0;
-    padding-top: 0.2rem;
-}
-.project-links a {
-    color: var(--fg-dim);
-    font-size: 1.05rem;
-    transition: color .25s ease, transform .25s ease;
-}
-.project-links a:hover {
-    color: var(--accent);
-    transform: translate(2px, -2px);
-}
+            <div class="projects-list">
 
-.project-desc {
-    color: var(--fg-dim);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 1.4rem;
-    flex: 1;
-}
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-.project-tags span {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    padding: 0.3rem 0.65rem;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 100px;
-    letter-spacing: 0.03em;
-}
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 01</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">Auto SIA — Threat Intel Suite</h3>
+                            <div class="project-links">
+                                <a href="https://hack-parthsharma.github.io/threat-intel/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            An all-in-one threat-intel dashboard: automated security checks, bulk URL
+                            scanning and reputation lookups against multiple OSINT feeds. Built for
+                            analysts who need to triage indicators quickly.
+                        </p>
+                        <div class="project-tags">
+                            <span>Threat Intel</span><span>OSINT</span><span>JavaScript</span>
+                        </div>
+                    </div>
+                </article>
 
-.projects-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-top: 2.5rem;
-    font-family: var(--font-mono);
-    color: var(--accent);
-    font-size: 0.9rem;
-    transition: gap .25s ease;
-}
-.projects-more:hover { gap: 1rem; }
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 02</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">24H Vuln Intel Dashboard</h3>
+                            <div class="project-links">
+                                <a href="https://hack-parthsharma.github.io/vuln-intel/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Rolling 24-hour feed of freshly disclosed CVEs and vulnerability
+                            advisories, ranked by severity and exploit-availability. Built for
+                            security teams who need to wake up already caught up.
+                        </p>
+                        <div class="project-tags">
+                            <span>CVE</span><span>Vulnerability Intel</span><span>Dashboard</span>
+                        </div>
+                    </div>
+                </article>
 
-/* ==========================================================================
-   EXPERIENCE
-   ========================================================================== */
-.exp-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-@media (max-width: 820px) {
-    .exp-list { grid-template-columns: 1fr; }
-}
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 03</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">itscybertech — Blog</h3>
+                            <div class="project-links">
+                                <a href="https://itscybertech.com/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            A long-running publication covering infosec news, tooling, CTF write-ups
+                            and practical guides for security practitioners.
+                        </p>
+                        <div class="project-tags">
+                            <span>Editorial</span><span>SEO</span><span>Community</span>
+                        </div>
+                    </div>
+                </article>
 
-.exp-card {
-    position: relative;
-    padding: 1.8rem;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: transform .35s ease, border-color .35s ease, background .35s ease;
-    overflow: hidden;
-}
-.exp-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--accent);
-    opacity: 0;
-    transition: opacity .35s ease;
-}
-.exp-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-line);
-    background: var(--bg-elev-2);
-}
-.exp-card:hover::before { opacity: 1; }
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 04</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">xreactor — Hacking Forum</h3>
+                            <div class="project-links">
+                                <a href="https://xreactor.org/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Discussion platform for ethical hackers — threads on exploitation, tooling
+                            and disclosure. Moderated community with thousands of posts.
+                        </p>
+                        <div class="project-tags">
+                            <span>Community</span><span>Forum</span><span>Security</span>
+                        </div>
+                    </div>
+                </article>
 
-.exp-card--current {
-    border-color: var(--accent-line);
-    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-elev) 60%);
-}
-.exp-card--current::before { opacity: 1; }
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 05</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">BTC-to-NEO4J</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/hack-parthsharma/BTC-to-NEO4J-DASH" aria-label="Source code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Pipeline that ingests the Bitcoin blockchain into a Neo4j graph database
+                            for transaction-flow analysis and forensics research. Dockerised for quick
+                            replication.
+                        </p>
+                        <div class="project-tags">
+                            <span>Python</span><span>Shell</span><span>Docker</span><span>Neo4j</span>
+                        </div>
+                    </div>
+                </article>
 
-.exp-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
-.exp-badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.28rem 0.65rem;
-    border-radius: 100px;
-    background: var(--accent);
-    color: var(--bg);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-.exp-card--current .exp-badge::before {
-    content: "";
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--bg);
-    animation: pulse 2s infinite;
-}
-.exp-badge--ghost {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent-line);
-}
-.exp-period {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--fg-dim);
-}
-.exp-role {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--fg);
-    letter-spacing: -0.01em;
-    line-height: 1.25;
-    margin-bottom: 0.3rem;
-}
-.exp-company {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: var(--accent);
-    margin-bottom: 0.9rem;
-}
-.exp-desc {
-    color: var(--fg-dim);
-    font-size: 0.95rem;
-    line-height: 1.65;
-}
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 06</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">RanSim</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/hack-parthsharma/RanSim" aria-label="Source code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Ransomware simulator written in PowerShell for blue teams to safely validate
+                            their EDR, backup and detection pipelines against realistic encryption
+                            behaviours.
+                        </p>
+                        <div class="project-tags">
+                            <span>PowerShell</span><span>Red-Team</span><span>Defense</span>
+                        </div>
+                    </div>
+                </article>
 
-/* ==========================================================================
-   CERTIFICATIONS
-   ========================================================================== */
-.certs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-@media (max-width: 960px) {
-    .certs-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-    .certs-grid { grid-template-columns: 1fr; }
-}
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 07</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">IOC Hunter</h3>
+                            <div class="project-links">
+                                <a href="https://hack-parthsharma.github.io/ioc-hunter/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            A fast indicator-of-compromise extractor and enricher. Paste raw logs,
+                            reports or emails — IOC Hunter pulls out hashes, IPs, domains and URLs,
+                            then enriches them for quick investigation.
+                        </p>
+                        <div class="project-tags">
+                            <span>IOC</span><span>DFIR</span><span>Analyst Tooling</span>
+                        </div>
+                    </div>
+                </article>
 
-.cert-card {
-    position: relative;
-    padding: 1.4rem 1.4rem 1.3rem;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: transform .3s ease, border-color .3s ease, background .3s ease;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-.cert-card::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .45s ease;
-}
-.cert-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-line);
-    background: var(--bg-elev-2);
-}
-.cert-card:hover::after { transform: scaleX(1); }
+            </div>
 
-.cert-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-.cert-tag {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.55rem;
-    border-radius: 100px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border: 1px solid var(--accent-line);
-    font-weight: 500;
-}
-.cert-tag--blue {
-    background: rgba(100, 180, 255, 0.10);
-    color: #7cc4ff;
-    border-color: rgba(100, 180, 255, 0.28);
-}
-.cert-tag--neutral {
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--fg-dim);
-    border-color: var(--border-strong);
-}
-body.light .cert-tag--blue {
-    background: rgba(30, 90, 180, 0.10);
-    color: #1e5ab4;
-    border-color: rgba(30, 90, 180, 0.28);
-}
+            <a href="https://github.com/hack-parthsharma" class="projects-more">
+                <span>see more on GitHub</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
 
-.cert-icon {
-    color: var(--fg-dimmer);
-    font-size: 1.05rem;
-    transition: color .3s ease, transform .3s ease;
-}
-.cert-card:hover .cert-icon {
-    color: var(--accent);
-    transform: rotate(-8deg) scale(1.1);
-}
+        <!-- CONTACT -->
+        <section id="contact" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">07.</span>
+                <h2 class="section-title">Get in touch</h2>
+                <span class="section-line"></span>
+            </div>
 
-.cert-name {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--fg);
-    letter-spacing: -0.01em;
-    line-height: 1.25;
-    margin-bottom: 0.35rem;
-}
-.cert-issuer {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--fg-dim);
-    line-height: 1.5;
-}
+            <div class="contact-wrap">
+                <div class="contact-intro">
+                    <p class="contact-big">
+                        Got a project, a bounty, or just want to chat about <span class="hl">security</span>?
+                    </p>
+                    <p class="contact-small">
+                        My inbox is always open — whether it's a vulnerability disclosure, a freelance opportunity,
+                        or a conversation about the craft, I'll do my best to reply.
+                    </p>
+                    <div class="contact-direct">
+                        <a href="mailto:ps191240@gmail.com" class="contact-mail">
+                            ps191240@gmail.com <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
 
-/* ==========================================================================
-   CONTACT
-   ========================================================================== */
-.contact-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-}
-@media (max-width: 820px) {
-    .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
-}
+                <form action="https://formspree.io/f/xleaqgnz" method="POST" id="contact-block">
+                    <div class="contact-input">
+                        <label for="name">01. Name</label>
+                        <input id="name" type="text" name="name" autocomplete="name" required>
+                    </div>
+                    <div class="contact-input">
+                        <label for="email">02. Email</label>
+                        <input id="email" type="email" name="_replyto" autocomplete="email" required>
+                    </div>
+                    <div class="contact-input">
+                        <label for="message">03. Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>send message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-.contact-big {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 500;
-    color: var(--fg);
-    letter-spacing: -0.01em;
-    margin-bottom: 1.2rem;
-    line-height: 1.25;
-}
-.contact-small {
-    color: var(--fg-dim);
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-}
-.contact-mail {
-    font-family: var(--font-mono);
-    font-size: 1.05rem;
-    color: var(--accent);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--accent-line);
-    transition: all .25s ease;
-}
-.contact-mail:hover {
-    gap: 0.8rem;
-    border-bottom-color: var(--accent);
-}
-.contact-mail i { font-size: 0.8em; }
+    <footer>
+        <span>Built &amp; secured by Parth Sharma</span>
+        <span class="footer-dot">•</span>
+        <span>© 2026</span>
+    </footer>
 
-#contact-block {
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-}
-.contact-input {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-.contact-input label {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--accent);
-    letter-spacing: 0.03em;
-}
-.contact-input input,
-.contact-input textarea {
-    width: 100%;
-    padding: 0.85rem 1rem;
-    background: var(--bg-elev);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    color: var(--fg);
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    outline: none;
-    transition: all .25s ease;
-    resize: vertical;
-}
-.contact-input textarea { min-height: 120px; }
-.contact-input input:focus,
-.contact-input textarea:focus {
-    border-color: var(--accent);
-    background: var(--bg-elev-2);
-    box-shadow: 0 0 0 3px var(--accent-soft);
-}
-#contact-block button {
-    align-self: flex-start;
-    margin-top: 0.6rem;
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--fg-dim);
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-}
-.footer-dot { color: var(--accent); }
-
-/* ==========================================================================
-   AOS override - subtle
-   ========================================================================== */
-[data-aos] { transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important; }
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
