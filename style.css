@@ -96,7 +96,7 @@ button { font: inherit; cursor: none; }
 }
 
 /* ==========================================================================
-   Custom cursor
+   Custom cursor — minimal precision dot, subtle ring on hover only
    ========================================================================== */
 .cursor, .cursor-dot {
     position: fixed;
@@ -105,28 +105,31 @@ button { font: inherit; cursor: none; }
     border-radius: 50%;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: transform .2s ease, width .25s ease, height .25s ease,
-                background .25s ease, border-color .25s ease;
     will-change: transform;
 }
-.cursor {
-    width: var(--cursor-size);
-    height: var(--cursor-size);
-    border: 1.5px solid var(--accent);
-    mix-blend-mode: difference;
-}
 .cursor-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--accent);
+    width: 6px;
+    height: 6px;
+    background: var(--fg);
+    transition: width .2s ease, height .2s ease, background .2s ease, opacity .2s ease;
+}
+.cursor {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--fg-dim);
+    opacity: 0;
+    transition: opacity .2s ease, width .25s ease, height .25s ease, border-color .25s ease;
 }
 .cursor.hover {
-    width: 56px;
-    height: 56px;
-    background: var(--accent-soft);
+    opacity: 1;
     border-color: var(--accent);
 }
-.cursor.hover + .cursor-dot { opacity: 0; }
+.cursor.hover ~ .cursor-dot,
+.cursor-dot.hover {
+    background: var(--accent);
+    width: 4px;
+    height: 4px;
+}
 
 @media (max-width: 820px), (hover: none) {
     body { cursor: auto; }
