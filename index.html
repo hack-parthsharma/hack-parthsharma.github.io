@@ -2,285 +2,393 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <base target="_blank">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <base target="_blank">
+    <title>Parth Sharma // Cybersecurity Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>Parth Sharma | Portfolio</title>
+    <link href="style.css" rel="stylesheet">
 </head>
-<body>
+<body class="dark">
+
+    <!-- Grain texture overlay -->
+    <div class="grain"></div>
+
+    <!-- Custom cursor -->
     <div class="cursor"></div>
-    <div id="container">
-        <nav>
-            <button id="day-night">
-                <i class="fas fa-sun"></i>
-            </button>
+    <div class="cursor-dot"></div>
+
+    <!-- Side sockets -->
+    <aside id="socials" aria-label="Social links">
+        <a href="https://github.com/hack-parthsharma" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/parthsharmajii/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:ps191240@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <span class="socials-line"></span>
+    </aside>
+
+    <aside id="side-tag" aria-hidden="true">
+        <span>ps191240@gmail.com</span>
+        <span class="socials-line"></span>
+    </aside>
+
+    <!-- Nav -->
+    <header class="nav">
+        <a href="#about" target="_self" class="logo">
+            <span class="logo-bracket">{</span>PS<span class="logo-bracket">}</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#about" target="_self"><span class="nav-num">01.</span> about</a>
+            <a href="#skills" target="_self"><span class="nav-num">02.</span> skills</a>
+            <a href="#edu" target="_self"><span class="nav-num">03.</span> education</a>
+            <a href="#project" target="_self"><span class="nav-num">04.</span> work</a>
+            <a href="#contact" target="_self"><span class="nav-num">05.</span> contact</a>
         </nav>
+        <button id="day-night" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
 
-        <div id="contact-left">
-            <div id="contact-line"></div>
-            <div id="contact-left-links">
-                <a href="https://www.linkedin.com/in/parthsharmajii/"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:ps191240@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/hack-parthsharma"><i class="fab fa-github"></i></a>
+    <main>
+        <!-- ABOUT / HERO -->
+        <section id="about" class="block hero">
+            <div class="hero-meta">
+                <span class="status-dot"></span>
+                <span>available_for_work // 2026</span>
             </div>
-        </div>
-
-        <main>
-            <div id="about" class="block">
-                <div class="heading" id="heading--main"></div>
-                <p>                    
-                    <span style="font-size: 2rem;">👋</span> Hey I am <span style="color: green;">Parth Sharma</span>!!
-                    <br>A work oriented smartworking individual accented with the latest trends and technologies of cyber security, having an inborn passion for technology and a strong sense of responsibility.
-                    <!-- add info -->
-                </p>
+            <p class="hero-hello">Hello world, I'm</p>
+            <h1 id="heading--main" class="hero-name"></h1>
+            <h2 class="hero-tagline">
+                I break things <em>so they can be built</em> better.
+            </h2>
+            <p class="hero-desc">
+                Cybersecurity researcher &amp; engineer specialising in <span class="hl">penetration testing</span>,
+                <span class="hl">bug bounty</span>, and <span class="hl">malware analysis</span>. I ship code, break systems,
+                and document the gap in between.
+            </p>
+            <div class="hero-cta">
+                <a href="#project" target="_self" class="btn btn-primary">
+                    <span>view work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="mailto:ps191240@gmail.com" class="btn btn-ghost">
+                    <span>get in touch</span>
+                </a>
             </div>
 
-            <div id="skills" class="block" data-aos="slide-up" data-aos-duration="1200" data-aos-easing="ease-in-out-back">
-                <div class="heading" id="skill--heading">SKILLS</div>
-                <div class="skill-blocks-all">
-                    <div class="skill-block"  >
-                        <span class="skill-block-heading">Cybersecurity</span>
-                        <div class="skill-line">
-                            <div id="skill-line-cybersecurity"></div>
-                            <span>90%</span>
-                        </div>
+            <div class="hero-scroll">
+                <span>scroll</span>
+                <span class="scroll-line"></span>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">02.</span>
+                <h2 class="section-title">Skills &amp; Stack</h2>
+                <span class="section-line"></span>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skills-col">
+                    <h3 class="skills-col-title">// security</h3>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Cybersecurity</span><span class="skill-num">90</span></div>
+                        <div class="skill-line"><div data-width="90"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Penetration Testing</span>
-                        <div class="skill-line">
-                            <div id="skill-line-penetrationtesting"></div>
-                            <span>80%</span>
-                        </div>
+                        <div class="skill-row"><span>Penetration Testing</span><span class="skill-num">80</span></div>
+                        <div class="skill-line"><div data-width="80"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Bug Bounty</span>
-                        <div class="skill-line">
-                            <div id="skill-line-bugbounty"></div>
-                            <span>75%</span>
-                        </div>
+                        <div class="skill-row"><span>Bug Bounty</span><span class="skill-num">75</span></div>
+                        <div class="skill-line"><div data-width="75"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Linux</span>
-                        <div class="skill-line">
-                            <div id="skill-line-linux"></div>
-                            <span>70%</span>
-                        </div>
+                        <div class="skill-row"><span>Reverse Engineering</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Git</span>
-                        <div class="skill-line">
-                            <div id="skill-line-git"></div>
-                            <span>70%</span>
-                        </div>
+                        <div class="skill-row"><span>Malware Analysis</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Reverse Engineering</span>
-                        <div class="skill-line">
-                            <div id="skill-line-reverseengineering"></div>
-                            <span>70%</span>
-                        </div>
+                        <div class="skill-row"><span>Networking</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
+                    </div>
+                </div>
+
+                <div class="skills-col">
+                    <h3 class="skills-col-title">// engineering</h3>
+                    <div class="skill-block">
+                        <div class="skill-row"><span>Python</span><span class="skill-num">80</span></div>
+                        <div class="skill-line"><div data-width="80"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Networking</span>
-                        <div class="skill-line">
-                            <div id="skill-line-networking"></div>
-                            <span>70%</span>
-                        </div>
+                        <div class="skill-row"><span>Go</span><span class="skill-num">75</span></div>
+                        <div class="skill-line"><div data-width="75"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Malware Analysis</span>
-                        <div class="skill-line">
-                            <div id="skill-line-malwareanalysis"></div>
-                            <span>70%</span>
-                        </div>
+                        <div class="skill-row"><span>JavaScript</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Python</span>
-                        <div class="skill-line">
-                            <div id="skill-line-python"></div>
-                            <span>80%</span>
-                        </div>
+                        <div class="skill-row"><span>Linux</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Go</span>
-                        <div class="skill-line">
-                            <div id="skill-line-go"></div>
-                            <span>75%</span>
-                        </div>
+                        <div class="skill-row"><span>Git</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">Javascript</span>
-                        <div class="skill-line">
-                            <div id="skill-line-javascript"></div>
-                            <span>70%</span>
-                        </div>
+                        <div class="skill-row"><span>MongoDB</span><span class="skill-num">70</span></div>
+                        <div class="skill-line"><div data-width="70"></div></div>
                     </div>
                     <div class="skill-block">
-                        <span class="skill-block-heading">MongoDB</span>
-                        <div class="skill-line">
-                            <div id="skill-line-mongodb"></div>
-                            <span>70%</span>
-                        </div>
-                    </div>
-                    <div class="skill-block">
-                        <span class="skill-block-heading">Rust</span>
-                        <div class="skill-line">
-                            <div id="skill-line-rust"></div>
-                            <span>40%</span>
-                        </div>
+                        <div class="skill-row"><span>Rust</span><span class="skill-num">40</span></div>
+                        <div class="skill-line"><div data-width="40"></div></div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div id="edu" class="block" data-aos="slide-up" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
-                <div class="heading">EDUCATION</div>
-                <div class="edu-block-main">
-                    <div class="edu-block-sub">
-                        <div class="edu-block" data-aos="flip-down">
-                            <span class="edu-block-heading">SECONDARY </span>
-                            <p>
-                                C.I Patel English Medium High School<br>
-                                SSC : [2016] 92%
-                            </p>
-                        </div>
-                        <div class="edu-block" data-aos="flip-down">
-                            <span class="edu-block-heading">HIGHER SECONDARY</span>
-                            <p>
-                                C.I Patel English Medium High School <br>
-                                HSC Science: [2018] 79%
-                            </p>
-                        </div>
-                        <div class="edu-block" data-aos="flip-down">
-                            <span class="edu-block-heading">B.Tech CE</span>
-                            <p>
-                                U.V Patel College of Engineering<br>
-                                CGPA 9.2 (up till sem III)
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <!-- EDUCATION -->
+        <section id="edu" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">03.</span>
+                <h2 class="section-title">Education</h2>
+                <span class="section-line"></span>
             </div>
 
-            <div id="project" class="block" >
-                <div class="heading">PROJECT</div>
-                <div id="project-all">
-                    <div class="project-block project-block1" data-aos="slide-left" data-aos-easing="ease-in-out">
-                        <img src="images/1.jpg" alt="cryptocurrency dashboard">
-                        <div class="project-block-cont">
-                            <span class="project-block-heading">CryptoCurrency Dashboard</span>
-                            <div class="project-block-links-source">
-                                <a class="project-block-link" href="https://cryp-dash.netlify.app/">Live Site</a>
-                            </div>
-                            <div class="used-lang">
-                                <span class="label">REACT</span>
-                                <span class="label">SCSS</span>
-                                <span class="label">JAVASCRIPT</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">2018 — 2022</div>
+                    <h3 class="timeline-heading">B.Tech, Computer Engineering</h3>
+                    <p class="timeline-sub">U.V Patel College of Engineering</p>
+                    <div class="timeline-meta"><span>CGPA</span><strong>8.9</strong></div>
+                </div>
 
-                    <div class="project-block project-block2" data-aos="slide-left" data-aos-easing="ease-in-out">
-                        <img src="images/2.png" alt="Blog Site">
-                        <div class="project-block-cont">
-                            <span class="project-block-heading">Blog Site</span>
-                            <div class="project-block-links-source">
-                              <a class="project-block-link" href="https://itscybertech.com/">Live Site</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">2016 — 2018</div>
+                    <h3 class="timeline-heading">Higher Secondary, Science</h3>
+                    <p class="timeline-sub">C.I Patel English Medium High School</p>
+                    <div class="timeline-meta"><span>HSC</span><strong>79%</strong></div>
+                </div>
 
-                    <div class="project-block project-block3" data-aos="slide-right" data-aos-easing="ease-in-out">
-                        <img src="images/3.png" alt="Hacking Forum">
-                        <div class="project-block-cont">
-                            <span class="project-block-heading">Hacking Forum</span>
-                            <div class="project-block-links-source">
-                                <a class="project-block-link" href="https://xreactor.org/">Live Site</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-block project-block4" data-aos="slide-right" data-aos-easing="ease-in-out">
-                        <img src="images/4.png" alt="BTC to NEO4J">
-                        <div class="project-block-cont">
-                            <span class="project-block-heading">BTC to NEO4J</span>
-                            <div class="project-block-links-source">
-                                <a class="project-block-source" href="https://github.com/hack-parthsharma/BTC-to-NEO4J-DASH">Source code</a>
-                            </div>
-                            <div class="used-lang">
-                                <span class="label">Python</span>
-                                <span class="label">Shell</span>
-                                <span class="label">Dockerfile</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-block project-block5" data-aos="slide-left" data-aos-easing="ease-in-out">
-                        <img src="images/5.png" alt="Ransim">
-                        <div class="project-block-cont">
-                            <span class="project-block-heading">RanSim</span>
-                            <div class="project-block-links-source">
-                                <a class="project-block-source" href="https://github.com/hack-parthsharma/RanSim">Source Code</a>
-                               </div>
-                            <div class="used-lang">
-                                <span class="label">Powershell</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-block project-block6" data-aos="slide-right" data-aos-easing="ease-in-out">
-                        <img src="images/6.png" alt="Todo MVC">
-                        <div class="project-block-cont">
-                            <span class="project-block-heading">TODO MVC</span>
-                            <div class="project-block-links-source">
-                               </div>
-                            <div class="used-lang">
-                                <span class="label">HTML5</span>
-                                <span class="label">CSS3</span>
-                                <span class="label">JS</span>
-                                <span class="label">Jquery</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">2016</div>
+                    <h3 class="timeline-heading">Secondary</h3>
+                    <p class="timeline-sub">C.I Patel English Medium High School</p>
+                    <div class="timeline-meta"><span>SSC</span><strong>92%</strong></div>
                 </div>
             </div>
+        </section>
 
-            <div class="block" id="contact" >
-                <div class="heading">CONTACT</div>
-                <form  action="https://formspree.io/f/xleaqgnz"  method="POST" id="contact-block" data-aos="slide-right" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
+        <!-- PROJECTS -->
+        <section id="project" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">04.</span>
+                <h2 class="section-title">Selected Work</h2>
+                <span class="section-line"></span>
+            </div>
+
+            <div class="projects-list">
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 01</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">CryptoCurrency Dashboard</h3>
+                            <div class="project-links">
+                                <a href="https://cryp-dash.netlify.app/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Real-time cryptocurrency tracker with live market data, trend charts, and
+                            watchlist-style UI. Clean component architecture in React with responsive SCSS.
+                        </p>
+                        <div class="project-tags">
+                            <span>React</span><span>SCSS</span><span>JavaScript</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 02</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">itscybertech — Blog</h3>
+                            <div class="project-links">
+                                <a href="https://itscybertech.com/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            A long-running publication covering infosec news, tooling, CTF write-ups
+                            and practical guides for security practitioners.
+                        </p>
+                        <div class="project-tags">
+                            <span>Editorial</span><span>SEO</span><span>Community</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 03</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">xreactor — Hacking Forum</h3>
+                            <div class="project-links">
+                                <a href="https://xreactor.org/" aria-label="Live site">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Discussion platform for ethical hackers — threads on exploitation, tooling
+                            and disclosure. Moderated community with thousands of posts.
+                        </p>
+                        <div class="project-tags">
+                            <span>Community</span><span>Forum</span><span>Security</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 04</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">BTC-to-NEO4J</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/hack-parthsharma/BTC-to-NEO4J-DASH" aria-label="Source code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Pipeline that ingests the Bitcoin blockchain into a Neo4j graph database
+                            for transaction-flow analysis and forensics research. Dockerised for quick
+                            replication.
+                        </p>
+                        <div class="project-tags">
+                            <span>Python</span><span>Shell</span><span>Docker</span><span>Neo4j</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 05</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">RanSim</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/hack-parthsharma/RanSim" aria-label="Source code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Ransomware simulator written in PowerShell for blue teams to safely validate
+                            their EDR, backup and detection pipelines against realistic encryption
+                            behaviours.
+                        </p>
+                        <div class="project-tags">
+                            <span>PowerShell</span><span>Red-Team</span><span>Defense</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-index">/ 06</div>
+                    <div class="project-body">
+                        <div class="project-top">
+                            <h3 class="project-title">TODO MVC</h3>
+                            <div class="project-links">
+                                <span class="project-links-ghost" aria-label="No link">—</span>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            A from-scratch implementation of the classic TodoMVC app using vanilla HTML,
+                            CSS, JavaScript and jQuery — a clean reference for DOM-manipulation patterns.
+                        </p>
+                        <div class="project-tags">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>jQuery</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <a href="https://github.com/hack-parthsharma" class="projects-more">
+                <span>see more on GitHub</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="block" data-aos="fade-up">
+            <div class="section-head">
+                <span class="section-num">05.</span>
+                <h2 class="section-title">Get in touch</h2>
+                <span class="section-line"></span>
+            </div>
+
+            <div class="contact-wrap">
+                <div class="contact-intro">
+                    <p class="contact-big">
+                        Got a project, a bounty, or just want to chat about <span class="hl">security</span>?
+                    </p>
+                    <p class="contact-small">
+                        My inbox is always open — whether it's a vulnerability disclosure, a freelance opportunity,
+                        or a conversation about the craft, I'll do my best to reply.
+                    </p>
+                    <div class="contact-direct">
+                        <a href="mailto:ps191240@gmail.com" class="contact-mail">
+                            ps191240@gmail.com <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form action="https://formspree.io/f/xleaqgnz" method="POST" id="contact-block">
                     <div class="contact-input">
-                        <label for="name">Name</label>
-                        <input type="text" name="name">
+                        <label for="name">01. Name</label>
+                        <input id="name" type="text" name="name" autocomplete="name" required>
                     </div>
                     <div class="contact-input">
-                        <label for="email">Email</label>
-                        <input type="email" name="_replyto">
+                        <label for="email">02. Email</label>
+                        <input id="email" type="email" name="_replyto" autocomplete="email" required>
                     </div>
                     <div class="contact-input">
-                        <label for="message">Message</label>
-                        <textarea name="message"></textarea>
+                        <label for="message">03. Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <button  type="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary">
+                        <span>send message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </form>
             </div>
+        </section>
+    </main>
 
-        </main>
-    </div>
-    <div id="contact-links">
-        <a href="https://www.linkedin.com/in/parthsharmajii/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="mailto:ps191240@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/hack-parthsharma"><i class="fab fa-github"></i></a>
-    </div>
     <footer>
-        Made with ❤️ by Parth Sharma
+        <span>Built &amp; secured by Parth Sharma</span>
+        <span class="footer-dot">•</span>
+        <span>© 2026</span>
     </footer>
-    <script src="script.js"></script>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
